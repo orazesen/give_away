@@ -1,4 +1,4 @@
-# give_away
+# Give Away
 
 A new Flutter project.
 
