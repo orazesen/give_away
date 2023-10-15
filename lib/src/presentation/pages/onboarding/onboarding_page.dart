@@ -23,7 +23,7 @@ class OnboardingPage extends StatelessWidget {
                   context.router.replace(const MainRoute());
                   break;
                 case GiveAwayOnboardingRoutes.signIn:
-                  context.router.replace(const LoginRoute());
+                  context.router.replace(LoginRoute());
                 default:
               }
             },
@@ -38,7 +38,7 @@ class OnboardingPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  context.router.replace(const LoginRoute());
+                  context.router.replace(LoginRoute());
                 },
                 child: Text(
                   'Continue',

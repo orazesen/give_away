@@ -28,6 +28,9 @@ class AppFonts {
   ///w900
   static const weightBlack = FontWeight.w900;
 
+  ///4
+  static const double size4XS = 4;
+
   ///6
   static const double size3XS = 6;
 
@@ -40,27 +43,24 @@ class AppFonts {
   /// 12
   static const double sizeS = 12;
 
-  /// 13
-  static const double sizeSPlus = 13;
-
   /// 14
   static const double sizeM = 14;
 
   /// 16
-  static const double sizeL = 16;
+  static const double h6 = 16;
 
   /// 18
-  static const double sizeXL = 18;
+  static const double h5 = 18;
 
   /// 20
-  static const double size2XL = 20;
-
-  /// 22
-  static const double size3XL = 22;
+  static const double h4 = 20;
 
   /// 24
-  static const double size4XL = 24;
+  static const double h3 = 24;
 
-  /// 28
-  static const double size5XL = 28;
+  /// 32
+  static const double h2 = 30;
+
+  /// 34
+  static const double h1 = 34;
 }

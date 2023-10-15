@@ -1,85 +1,107 @@
 import 'package:flutter/material.dart';
 import 'package:give_away/src/presentation/theme/constants/app_fonts.dart';
 import 'package:give_away/src/presentation/theme/constants/dimensions.dart';
+import 'package:give_away/src/presentation/theme/give_away_theme.dart';
 import 'package:give_away/src/presentation/theme/palette/give_away_colors.dart';
 
-const mainFontFamily = 'Inter';
-final lightTheme = ThemeData(
-  fontFamily: mainFontFamily,
-  colorScheme: ColorScheme(
-    background: GiveAwayColors.white,
-    brightness: Brightness.light,
-    error: GiveAwayColors.errorRed,
-    onBackground: GiveAwayColors.midnightblue300,
-    onError: GiveAwayColors.white,
-    onPrimary: GiveAwayColors.white,
-    onSecondary: GiveAwayColors.white,
-    onSurface: GiveAwayColors.midnightblue300,
-    primary: GiveAwayColors.midnightblue300,
-    secondary: GiveAwayColors.lightBlack,
-    surface: GiveAwayColors.white,
-    shadow: GiveAwayColors.black.withOpacity(
-      0.4,
+const mainFontFamily = 'Montserrat';
+final lightTheme = GiveAwayTheme(
+  isDark: false,
+  theme: ThemeData(
+    useMaterial3: true,
+    fontFamily: mainFontFamily,
+    colorScheme: ColorScheme(
+      primary: GiveAwayColors.primary[500]!,
+      onPrimary: GiveAwayColors.primary[100]!,
+      secondary: GiveAwayColors.secondary[500]!,
+      onSecondary: GiveAwayColors.secondary[100]!,
+      error: GiveAwayColors.error[500]!,
+      onError: GiveAwayColors.error[100]!,
+      surface: GiveAwayColors.neutral[950]!,
+      onSurface: GiveAwayColors.primary[300]!,
+      background: GiveAwayColors.neutral[990]!,
+      onBackground: GiveAwayColors.neutral[100]!,
+      shadow: GiveAwayColors.black,
+      brightness: Brightness.light,
     ),
-  ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      backgroundColor: const MaterialStatePropertyAll(
-        GiveAwayColors.midnightblue300,
-      ),
-      elevation: const MaterialStatePropertyAll(
-        0,
-      ),
-      foregroundColor: const MaterialStatePropertyAll(
-        GiveAwayColors.white,
-      ),
-      iconColor: const MaterialStatePropertyAll(
-        GiveAwayColors.white,
-      ),
-      overlayColor: const MaterialStatePropertyAll(
-        GiveAwayColors.white,
-      ),
-      padding: const MaterialStatePropertyAll(
-        EdgeInsets.symmetric(
-          horizontal: Dimensions.marginBig,
-          vertical: Dimensions.marginMiddle,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStatePropertyAll(
+          GiveAwayColors.primary[500]!,
         ),
-      ),
-      enableFeedback: true,
-      shape: MaterialStatePropertyAll(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-            Dimensions.middleCircularRadius,
+        elevation: const MaterialStatePropertyAll(
+          0.8,
+        ),
+        foregroundColor: MaterialStatePropertyAll(
+          GiveAwayColors.primary[100]!,
+        ),
+        iconColor: MaterialStatePropertyAll(
+          GiveAwayColors.primary[100]!,
+        ),
+        overlayColor: MaterialStatePropertyAll(
+          GiveAwayColors.primary[100]!,
+        ),
+        padding: const MaterialStatePropertyAll(
+          EdgeInsets.symmetric(
+            horizontal: Dimensions.marginBig,
+            vertical: Dimensions.marginMiddle,
+          ),
+        ),
+        enableFeedback: true,
+        shape: MaterialStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+              Dimensions.middleCircularRadius,
+            ),
           ),
         ),
       ),
     ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: InputBorder.none,
+      disabledBorder: InputBorder.none,
+      prefixStyle: TextStyle(
+        fontSize: AppFonts.h6,
+        fontWeight: FontWeight.w400,
+        color: GiveAwayColors.primary[100]!,
+      ),
+      errorBorder: InputBorder.none,
+      enabledBorder: InputBorder.none,
+      focusedBorder: InputBorder.none,
+      suffixStyle: TextStyle(
+        fontSize: AppFonts.h6,
+        fontWeight: FontWeight.w400,
+        color: GiveAwayColors.primary[100]!,
+      ),
+      hintStyle: TextStyle(
+        fontSize: AppFonts.h6,
+        fontWeight: FontWeight.w400,
+        color: GiveAwayColors.primary[100]!,
+      ),
+      errorStyle: TextStyle(
+        fontSize: AppFonts.h6,
+        fontWeight: FontWeight.w400,
+        color: GiveAwayColors.error[500]!,
+      ),
+    ),
   ),
-  inputDecorationTheme: const InputDecorationTheme(
-    border: InputBorder.none,
-    disabledBorder: InputBorder.none,
-    prefixStyle: TextStyle(
-      fontSize: AppFonts.size5XL,
-      fontWeight: FontWeight.w400,
-      color: GiveAwayColors.grey1,
-    ),
-    errorBorder: InputBorder.none,
-    enabledBorder: InputBorder.none,
-    focusedBorder: InputBorder.none,
-    suffixStyle: TextStyle(
-      fontSize: AppFonts.size5XL,
-      fontWeight: FontWeight.w400,
-      color: GiveAwayColors.grey1,
-    ),
-    hintStyle: TextStyle(
-      fontSize: AppFonts.size5XL,
-      fontWeight: FontWeight.w400,
-      color: GiveAwayColors.grey1,
-    ),
-    errorStyle: TextStyle(
-      fontSize: AppFonts.size5XL,
-      fontWeight: FontWeight.w400,
-      color: GiveAwayColors.errorRed,
-    ),
-  ),
+  // primaryBackgroundColor: primaryBackgroundColor,
+  // secondaryBackgroundColor: secondaryBackgroundColor,
+  // greyBackgroundColor: greyBackgroundColor,
+  // greyTextColor: greyTextColor,
+  iconColor: GiveAwayColors.neutral[100]!,
+  // focusedIconColor: focusedIconColor,
+  textColor: GiveAwayColors.neutral[100]!,
+  // fabColor: fabColor,
+  // white: white,
+  // black: black,
+  // outlinedButtonSplashColor: outlinedButtonSplashColor,
+  // elevatedButtonSplashColor: elevatedButtonSplashColor,
+  // clubColor: clubColor,
+  // cardColor: cardColor,
+  // tariffColor: tariffColor,
+  // tariffRadioColor: tariffRadioColor,
+  // mainDividerThamarBlack100: mainDividerThamarBlack100,
+  // mainDividerThamarBlack100List: mainDividerThamarBlack100List,
+  // signoutBlack: signoutBlack,
 );

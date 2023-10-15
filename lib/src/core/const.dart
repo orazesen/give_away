@@ -13,4 +13,5 @@ class GiveAwaySupabaseCollections {
 
 class GiveAwaySharedPreferencesKeys {
   static const String hasOnboardingSeen = 'hasOnboardingSeen';
+  static const String themeType = 'themeType';
 }

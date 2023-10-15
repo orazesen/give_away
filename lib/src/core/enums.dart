@@ -102,3 +102,5 @@ enum FirebaseAuthExceptionType {
   ///    verification code of the credential is not valid.
   invalidVerificationCode,
 }
+
+enum ThemeType { light, dark, system }
