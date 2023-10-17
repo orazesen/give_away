@@ -338,22 +338,22 @@ class _GiveAwayTextFormFieldState extends State<GiveAwayTextFormField> {
             isDense: true,
             hintText: widget.hintText,
             hintStyle: widget.hintStyle ?? greyTextStyle,
-            // border: _border(
-            //   borderColor: widget.borderColor ?? GiveAwayColors.thamarBlack500,
-            // ),
-            // enabledBorder: _border(
-            //   borderColor: widget.borderColor ?? GiveAwayColors.thamarBlack500,
-            // ),
-            // focusedBorder: _border(
-            //   borderColor: GiveAwayColors.flirtatious500,
-            // ),
-            // errorBorder: _border(
-            //   borderColor: GiveAwayColors.errorRed,
-            // ),
-            // disabledBorder: _border(
-            //   borderColor: widget.borderColor ??
-            //       GiveAwayColors.gray600.withOpacity(0.64),
-            // ),
+            border: _border(
+              borderColor: widget.borderColor ?? GiveAwayColors.neutral[500]!,
+            ),
+            enabledBorder: _border(
+              borderColor: widget.borderColor ?? GiveAwayColors.neutral[500]!,
+            ),
+            focusedBorder: _border(
+              borderColor: GiveAwayColors.primary[500]!,
+            ),
+            errorBorder: _border(
+              borderColor: GiveAwayColors.error[500]!,
+            ),
+            disabledBorder: _border(
+              borderColor: widget.borderColor ??
+                  GiveAwayColors.neutral[500]!.withOpacity(0.64),
+            ),
             focusedErrorBorder: _border(
               borderColor: widget.borderColor ?? theme.theme.colorScheme.error,
             ),
@@ -363,9 +363,9 @@ class _GiveAwayTextFormFieldState extends State<GiveAwayTextFormField> {
             suffixIcon: (widget.isPasswordField || widget.suffixIcon != null)
                 ? Padding(
                     padding: const EdgeInsets.only(
-                      right: Dimensions.marginMiddle,
-                      top: Dimensions.marginMiddle,
-                      bottom: Dimensions.marginMiddle,
+                      right: Dimensions.marginSmall,
+                      top: Dimensions.marginSmall,
+                      bottom: Dimensions.marginSmall,
                     ),
                     child: widget.isPasswordField
                         ? InkWell(
@@ -385,8 +385,8 @@ class _GiveAwayTextFormFieldState extends State<GiveAwayTextFormField> {
             labelText: widget.labelText,
             labelStyle: widget.labelStyle ?? greyTextStyle,
             contentPadding: const EdgeInsets.symmetric(
-              horizontal: Dimensions.marginBig,
-              vertical: 18,
+              horizontal: Dimensions.marginRegular,
+              vertical: Dimensions.marginBigMiddle,
             ),
             floatingLabelAlignment: FloatingLabelAlignment.start,
             floatingLabelBehavior:
@@ -400,7 +400,7 @@ class _GiveAwayTextFormFieldState extends State<GiveAwayTextFormField> {
             prefixIcon: widget.prefixIcon != null
                 ? Padding(
                     padding: const EdgeInsetsDirectional.symmetric(
-                      horizontal: Dimensions.marginDefault,
+                      horizontal: Dimensions.marginSmall,
                     ),
                     child: widget.prefixIcon,
                   )
@@ -414,7 +414,7 @@ class _GiveAwayTextFormFieldState extends State<GiveAwayTextFormField> {
   }) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(
-        widget.borderRadius ?? Dimensions.textFieldCircularRadius,
+        widget.borderRadius ?? Dimensions.verySmallCircularRadius,
       ),
       borderSide: BorderSide(
         color: borderColor,

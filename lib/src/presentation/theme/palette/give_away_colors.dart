@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 abstract class GiveAwayColors {
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
+  static const transparent = Color(0x00000000);
+  static const googleSignInBlue = Color(0xFF346EF1);
 
   static MaterialColor primary =
       MaterialColor(const Color(0xFF6750A4).value, const <int, Color>{

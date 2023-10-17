@@ -1,45 +1,4 @@
 class GiveAwayIcons {
-  static const String apple = 'assets/icons/apple.svg';
-  static const String arrowLeft = 'assets/icons/arrow-left.svg';
-  static const String arrowRight = 'assets/icons/arrow-right.svg';
-  static const String audioSettings01 = 'assets/icons/audio-settings-01.svg';
-  static const String audioSettings02 = 'assets/icons/audio-settings-02.svg';
-  static const String bookSaved = 'assets/icons/book-saved.svg';
-  static const String bubble = 'assets/icons/bubble.svg';
-  static const String bulbOff = 'assets/icons/Bulb Off.svg';
-  static const String bulbOn = 'assets/icons/Bulb On.svg';
-  static const String cart = 'assets/icons/cart.svg';
-  static const String chevronRight = 'assets/icons/chevron-right.svg';
-  static const String clipboardText = 'assets/icons/clipboard-text.svg';
-  static const String delivery = 'assets/icons/delivery.svg';
-  static const String dollarCircle = 'assets/icons/dollar-circle.svg';
-  static const String facebook = 'assets/icons/facebook.svg';
-  static const String filter = 'assets/icons/filter.svg';
-  static const String flashOn = 'assets/icons/flash.svg';
-  static const String flash = 'assets/icons/flash-on.svg';
-  static const String globe03 = 'assets/icons/globe-03.svg';
-  static const String google = 'assets/icons/google.svg';
-  static const String handWithPhone = 'assets/icons/hand_with_phone.svg';
-  static const String help = 'assets/icons/help.svg';
-  static const String helpCircleContained =
-      'assets/icons/help-circle-contained.svg';
-  static const String home04 = 'assets/icons/home-04.svg';
-  static const String hourGlass01 = 'assets/icons/hourglass-01.svg';
-  static const String infoCircle = 'assets/icons/info-circle.svg';
-  static const String information = 'assets/icons/information.svg';
-  static const String jarVector = 'assets/icons/jar_vector.svg';
-  static const String jar = 'assets/icons/jar.svg';
-  static const String list = 'assets/icons/list.svg';
-  static const String logout04 = 'assets/icons/logout-04.svg';
-  static const String marker02 = 'assets/icons/marker-02.svg';
-  static const String messageChat01 = 'assets/icons/message-chat-01.svg';
-  static const String note = 'assets/icons/note.svg';
-  static const String people = 'assets/icons/people.svg';
-  static const String recycling = 'assets/icons/Recycling.svg';
-  static const String scan = 'assets/icons/scan.svg';
-  static const String search01 = 'assets/icons/search-01.svg';
-  static const String shop = 'assets/icons/shop.svg';
-  static const String userProfile03 = 'assets/icons/user-profile-03.svg';
-  static const String vector = 'assets/icons/vector.svg';
-  static const String weight = 'assets/icons/Weight.svg';
+  static const String googleIcon = 'assets/icons/google_icon.svg';
+  static const String appleIcon = 'assets/icons/apple_icon.svg';
 }

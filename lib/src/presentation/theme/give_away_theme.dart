@@ -73,6 +73,12 @@ extension TextStylesExtensions on GiveAwayTheme {
       );
 
   /// 30, w500
+  TextStyle get h2Bold => base.copyWith(
+        fontSize: AppFonts.h2,
+        fontWeight: AppFonts.weightBold,
+      );
+
+  /// 30, w500
   TextStyle get h2 => base.copyWith(
         fontSize: AppFonts.h2,
         fontWeight: AppFonts.weightRegular,
@@ -96,10 +102,16 @@ extension TextStylesExtensions on GiveAwayTheme {
         fontWeight: AppFonts.weightRegular,
       );
 
-  /// 18, w500,
+  /// 16, w500,
   TextStyle get h6 => base.copyWith(
         fontSize: AppFonts.h6,
         fontWeight: AppFonts.weightRegular,
+      );
+
+  /// 14, w500,
+  TextStyle get buttonTitleBold => base.copyWith(
+        fontSize: AppFonts.sizeM,
+        fontWeight: AppFonts.weightBold,
       );
 
   /// 14, w500
@@ -112,5 +124,12 @@ extension TextStylesExtensions on GiveAwayTheme {
   TextStyle get inputFloatingLabel => base.copyWith(
         fontSize: AppFonts.sizeS,
         fontWeight: AppFonts.weightRegular,
+      );
+
+  /// 12, w500
+  TextStyle get informationText => base.copyWith(
+        fontSize: AppFonts.sizeS,
+        fontWeight: AppFonts.weightBold,
+        color: theme.colorScheme.primary,
       );
 }

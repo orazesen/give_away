@@ -16,6 +16,8 @@ class AppRouter extends $AppRouter {
           // initial: true,
           path: '/',
         ),
+        AutoRoute(page: AuthenticationRoute.page),
+        AutoRoute(page: RegistrationRoute.page),
         AutoRoute(page: LoginRoute.page),
         // AutoRoute(page: AuthenticationRoute.page),
         // AutoRoute(page: AuthenticationCodeRoute.page),

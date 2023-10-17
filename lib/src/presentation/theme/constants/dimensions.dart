@@ -11,6 +11,8 @@ abstract class Dimensions {
 
   /// 16.0
   static const double marginDefault = 16;
+  //20.0
+  static const double marginRegular = 20;
   static const double marginBig = 24;
   static const double margin2x = 32;
   static const double margin3x = 48;

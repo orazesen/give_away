@@ -1,6 +1,17 @@
 {
 "login_page" : "Login Page",
+"back" : "Back",
 "email" : "Email",
 "password" : "Password",
-"login" : "Login"
+"login" : "Login",
+"forgot_password" : "Forgot password?",
+"want_to_join" : "Do you want to join GIVE AWAY community?",
+"already_joined" : "No, I've already registered",
+"yes_join" : "Yes, Let's join",
+"firstname" : "Firstname",
+"lastname" : "Lastname",
+"birth_date" : "Birth Date",
+"confirm_password" : "Confirm Password",
+"register" : "Register",
+"privacy_policy" : "By registering, you agree that we may collect and process your data for account management and communication purposes only."
 }
