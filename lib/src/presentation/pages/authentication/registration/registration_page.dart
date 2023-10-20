@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:give_away/app/di/injector.dart';
 import 'package:give_away/app/localization/localizations.dart';
+import 'package:give_away/src/presentation/pages/authentication/registration/cubit/registration_cubit.dart';
 import 'package:give_away/src/presentation/shared/widgets/give_away_app_bar.dart';
 import 'package:give_away/src/presentation/shared/widgets/give_away_button.dart';
 import 'package:give_away/src/presentation/shared/widgets/give_away_sign_in_with_button.dart';
@@ -19,6 +21,8 @@ class RegistrationPage extends StatelessWidget {
   final TextEditingController _firstname = TextEditingController();
   final TextEditingController _lastname = TextEditingController();
   final TextEditingController _birthDate = TextEditingController();
+
+  final _registrationCubit = i<RegistrationCubit>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +51,9 @@ class RegistrationPage extends StatelessWidget {
                 height: Dimensions.marginBig,
               ),
               GiveAwaySignInWithButton.google(
-                onPressed: () {},
+                onPressed: () {
+                  _registrationCubit.googleSignIn();
+                },
                 isLoading: false,
               ),
               const SizedBox(

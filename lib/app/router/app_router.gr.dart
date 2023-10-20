@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i8;
-import 'package:flutter/material.dart' as _i9;
+import 'package:flutter/foundation.dart' as _i9;
 import 'package:give_away/src/presentation/pages/authentication/authentication_page.dart'
     as _i1;
 import 'package:give_away/src/presentation/pages/authentication/login/login_page.dart'

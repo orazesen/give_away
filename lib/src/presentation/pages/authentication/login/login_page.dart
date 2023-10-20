@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:give_away/app/di/injector.dart';
 import 'package:give_away/app/localization/localizations.dart';
+import 'package:give_away/src/presentation/pages/authentication/login/cubit/login_cubit.dart';
 import 'package:give_away/src/presentation/shared/widgets/give_away_app_bar.dart';
 import 'package:give_away/src/presentation/shared/widgets/give_away_button.dart';
 import 'package:give_away/src/presentation/shared/widgets/give_away_sign_in_with_button.dart';
@@ -18,6 +20,7 @@ class LoginPage extends StatelessWidget {
   final GlobalKey _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final _loginCubit = i<LoginCubit>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +85,9 @@ class LoginPage extends StatelessWidget {
                   child: SizedBox(),
                 ),
                 GiveAwaySignInWithButton.google(
-                  onPressed: () {},
+                  onPressed: () {
+                    _loginCubit.googleSignIn();
+                  },
                   isLoading: false,
                 ),
                 const SizedBox(

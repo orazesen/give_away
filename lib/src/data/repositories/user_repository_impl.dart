@@ -11,4 +11,9 @@ class UserRepositoryImpl implements IUserRepository {
 
   @override
   Stream<AuthState> listenAuthChanges() => _authDataSource.listenAuthChanges();
+
+  @override
+  Future<void> googleSignIn() async {
+    _authDataSource.googleSignIn();
+  }
 }

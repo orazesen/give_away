@@ -18,4 +18,9 @@ class SupabaseAuthDataSource implements ISupabaseAuthDataSource {
     final response = await _auth.signUp(email: email, password: password);
     return response.session;
   }
+
+  @override
+  Future<void> googleSignIn() async {
+    final hasSignedIn = await _auth.signInWithOAuth(Provider.google);
+  }
 }
