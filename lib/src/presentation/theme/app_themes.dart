@@ -52,7 +52,7 @@ final lightTheme = GiveAwayTheme(
         shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              Dimensions.middleCircularRadius,
+              Dimensions.smallCircularRadius,
             ),
           ),
         ),

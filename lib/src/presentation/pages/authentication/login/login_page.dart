@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:give_away/app/localization/localizations.dart';
 import 'package:give_away/src/presentation/shared/widgets/give_away_app_bar.dart';
@@ -87,10 +88,11 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: Dimensions.marginDefault,
                 ),
-                GiveAwaySignInWithButton.apple(
-                  onPressed: () {},
-                  isLoading: false,
-                ),
+                if (defaultTargetPlatform == TargetPlatform.iOS)
+                  GiveAwaySignInWithButton.apple(
+                    onPressed: () {},
+                    isLoading: false,
+                  ),
                 const SizedBox(
                   height: Dimensions.marginDefault,
                 ),

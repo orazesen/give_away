@@ -414,7 +414,7 @@ class _GiveAwayTextFormFieldState extends State<GiveAwayTextFormField> {
   }) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(
-        widget.borderRadius ?? Dimensions.verySmallCircularRadius,
+        widget.borderRadius ?? Dimensions.smallCircularRadius,
       ),
       borderSide: BorderSide(
         color: borderColor,

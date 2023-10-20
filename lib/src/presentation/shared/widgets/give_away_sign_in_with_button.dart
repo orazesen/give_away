@@ -94,7 +94,7 @@ class _GiveAwaySignInWithButtonState extends State<GiveAwaySignInWithButton> {
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              Dimensions.verySmallCircularRadius,
+              Dimensions.smallCircularRadius,
             ),
           ),
         ),

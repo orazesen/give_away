@@ -206,7 +206,10 @@ class _GiveAwayButtonState extends State<GiveAwayButton>
             )
           : null,
       shape: MaterialStatePropertyAll(
-        StadiumBorder(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            Dimensions.smallCircularRadius,
+          ),
           side: BorderSide(
             color: widget.borderColor ?? GiveAwayColors.transparent,
           ),
