@@ -14,13 +14,22 @@ class SupabaseAuthDataSource implements ISupabaseAuthDataSource {
   }
 
   @override
-  Future<Session?> signUp(String email, String password) async {
-    final response = await _auth.signUp(email: email, password: password);
-    return response.session;
+  Future<void> signUp(String email, String password) async {
+    await _auth.signUp(email: email, password: password);
+  }
+
+  @override
+  Future<void> signIn(String email, String password) async {
+    _auth.signInWithPassword(email: email, password: password);
   }
 
   @override
   Future<void> googleSignIn() async {
-    final hasSignedIn = await _auth.signInWithOAuth(Provider.google);
+    await _auth.signInWithOAuth(Provider.google);
+  }
+
+  @override
+  Future<void> appleSignIn() async {
+    await _auth.signInWithApple();
   }
 }
