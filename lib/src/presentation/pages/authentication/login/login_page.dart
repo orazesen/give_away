@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: GiveAwayAppBar(
-        pageName: context.localization!.back,
+        pageName: context.localization.back,
       ),
       body: SafeArea(
         child: Padding(
@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
                   child: SizedBox(),
                 ),
                 Text(
-                  context.localization!.login,
+                  context.localization.login,
                   style: context.theme.h3,
                 ),
                 const SizedBox(
@@ -53,21 +53,21 @@ class LoginPage extends StatelessWidget {
                 ),
                 GiveAwayTextFormField.email(
                   controller: _emailController,
-                  labelText: context.localization!.email,
+                  labelText: context.localization.email,
                 ),
                 const SizedBox(
                   height: Dimensions.marginDefault,
                 ),
                 GiveAwayTextFormField.password(
                   controller: _passwordController,
-                  labelText: context.localization!.password,
+                  labelText: context.localization.password,
                 ),
                 Align(
                   alignment: AlignmentDirectional.centerEnd,
                   child: GiveAwayButton.text(
                     textColor: context.theme.theme.colorScheme.onBackground,
                     onPressed: () {},
-                    text: context.localization!.forgot_password,
+                    text: context.localization.forgot_password,
                     hasFullSize: false,
                     backgroundColor: GiveAwayColors.transparent,
                     hasSplash: false,
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 GiveAwayButton.text(
                   onPressed: () {},
-                  text: context.localization!.login,
+                  text: context.localization.login,
                 ),
                 const Expanded(
                   flex: 2,

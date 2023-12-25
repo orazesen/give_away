@@ -15,4 +15,8 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> googleSignIn() async {
     _userRepository.googleSignIn();
   }
+
+  Future<void> appleSignIn() async {
+    _userRepository.appleSignIn();
+  }
 }

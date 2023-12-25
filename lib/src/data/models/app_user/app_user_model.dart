@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 
 part 'app_user_model.freezed.dart';
 part 'app_user_model.g.dart';
@@ -12,6 +11,13 @@ class AppUserModel with _$AppUserModel {
     String? firstname,
     String? lastname,
     String? provider,
+    @JsonKey(includeFromJson: false, includeToJson: false) String? password,
+    @Default(false) @JsonKey(name: 'email_verified') bool emailVerified,
+    @Default(true) @JsonKey(name: 'is_anonymous') bool isAnonymous,
+    @JsonKey(name: 'photo_path') String? photoPath,
+    @JsonKey(name: 'photo_url') String? photoUrl,
+    @JsonKey(name: 'phone_number') String? phoneNumber,
+    @JsonKey(name: 'birth_date') DateTime? birthDate,
     @JsonKey(name: 'created_at') DateTime? createdAt,
     @JsonKey(name: 'updated_at') DateTime? updatedAt,
     @JsonKey(name: 'deleted_at') DateTime? deletedAt,

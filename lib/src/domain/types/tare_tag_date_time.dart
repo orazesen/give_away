@@ -1,7 +1,7 @@
-class give_awayDateTime {
+class GiveAwayDateTime {
   final DateTime date;
 
-  const give_awayDateTime({required this.date});
+  const GiveAwayDateTime({required this.date});
 
   @override
   String toString() {

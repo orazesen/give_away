@@ -8,10 +8,14 @@ class GiveAwaySupabaseCollections {
   static const String products = 'products';
   static const String stores = 'stores';
   static const String shops = 'shops';
-  static const String users = 'users';
+  static const String clients = 'clients';
 }
 
 class GiveAwaySharedPreferencesKeys {
   static const String hasOnboardingSeen = 'hasOnboardingSeen';
   static const String themeType = 'themeType';
+}
+
+class MagicDefaults {
+  static DateTime firstDatePossible = DateTime(1900, 1, 1);
 }

@@ -26,7 +26,7 @@ class AuthenticationPage extends StatelessWidget {
                 child: SizedBox(),
               ),
               Text(
-                context.localization!.want_to_join,
+                context.localization.want_to_join,
                 style: context.theme.h2Bold,
               ),
               const SizedBox(
@@ -36,7 +36,7 @@ class AuthenticationPage extends StatelessWidget {
                 onPressed: () {
                   context.router.push(RegistrationRoute());
                 },
-                text: context.localization!.yes_join,
+                text: context.localization.yes_join,
               ),
               const SizedBox(
                 height: Dimensions.marginDefault,
@@ -45,14 +45,14 @@ class AuthenticationPage extends StatelessWidget {
                 onPressed: () {
                   context.router.push(LoginRoute());
                 },
-                text: context.localization!.already_joined,
+                text: context.localization.already_joined,
                 backgroundColor: GiveAwayColors.primary[700],
               ),
               const SizedBox(
                 height: Dimensions.marginDefault,
               ),
               Text(
-                context.localization!.privacy_policy,
+                context.localization.privacy_policy,
                 textAlign: TextAlign.center,
                 style: context.theme.informationText,
               ),

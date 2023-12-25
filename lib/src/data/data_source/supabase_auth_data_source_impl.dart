@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:give_away/src/domain/data_source/i_supabase_auth_data_source.dart';
 import 'package:injectable/injectable.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+const String _tag = 'SupabaseAuthDataSource';
 
 @Injectable(as: ISupabaseAuthDataSource)
 class SupabaseAuthDataSource implements ISupabaseAuthDataSource {
@@ -14,22 +18,32 @@ class SupabaseAuthDataSource implements ISupabaseAuthDataSource {
   }
 
   @override
-  Future<void> signUp(String email, String password) async {
-    await _auth.signUp(email: email, password: password);
+  Future<String?> signUp(
+      {required String email, required String password}) async {
+    try {
+      final response = await _auth.signUp(email: email, password: password);
+      return response.user?.id;
+    } catch (e) {
+      log('User sign up failed', error: e, name: _tag);
+      rethrow;
+    }
   }
 
   @override
-  Future<void> signIn(String email, String password) async {
+  Future<void> signIn({required String email, required String password}) async {
     _auth.signInWithPassword(email: email, password: password);
   }
 
   @override
-  Future<void> googleSignIn() async {
-    await _auth.signInWithOAuth(Provider.google);
+  Future<void> signInWithOAuth({required OAuthProvider oAuthProvider}) async {
+    await _auth.signInWithOAuth(oAuthProvider);
   }
 
   @override
-  Future<void> appleSignIn() async {
-    await _auth.signInWithApple();
+  Future<void> resendEmail({required String email}) async {
+    await _auth.resend(
+      type: OtpType.signup,
+      email: email,
+    );
   }
 }

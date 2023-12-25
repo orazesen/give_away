@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:give_away/src/presentation/shared/widgets/give_away_vector_image.dart';
 import 'package:give_away/src/presentation/theme/constants/dimensions.dart';
 import 'package:give_away/src/presentation/theme/give_away_theme.dart';
 import 'package:give_away/src/presentation/theme/palette/give_away_colors.dart';

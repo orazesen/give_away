@@ -13,5 +13,16 @@
 "birth_date" : "Birth Date",
 "confirm_password" : "Confirm Password",
 "register" : "Register",
+"field_must_be_filled" : "Field must be filled!",
+"password_not_matched" : "Password is NOT matching!",
+"email_not_valid" : "Not valid email!",
+"password_not_valid" : "Not valid password!","sign_up" : "Sign up",
+"confirmation" : "Confirmation",
+"create_user" : "Create user",
+"edit_email" : "Edit email",
+"waiting" : "Waiting",
+"email_confirmation" : "Email Confirmation",
+"email_confirmation_text" : "We have sent email to {email} to confirm the validity of our email address. After receiving the email follow the link provided to confirm the email address.",
+"resent_confirmation_email" : "Resend email",
 "privacy_policy" : "By registering, you agree that we may collect and process your data for account management and communication purposes only."
 }

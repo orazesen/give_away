@@ -1,10 +1,10 @@
 class Photo {
-  final String url;
+  final String photoPath;
+  final String photoUrl;
 
-  const Photo({required this.url});
-
+  Photo({required this.photoPath, required this.photoUrl});
   @override
   String toString() {
-    return "Photo(url: '$url')";
+    return "PhotoUrl(photoUrl: '$photoPath', fullPhotoUrl: '$photoUrl')";
   }
 }

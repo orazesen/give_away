@@ -167,12 +167,13 @@ class _GiveAwayButtonState extends State<GiveAwayButton>
     return !widget.animated
         ? Icon(
             widget.iconName!,
-            color: context.theme.iconColor,
+            color: context.theme.theme.colorScheme.onPrimary,
           )
         : RotationTransition(
             turns: _animation,
             child: Icon(
               widget.iconName!,
+              color: context.theme.theme.colorScheme.onPrimary,
             ),
           );
   }

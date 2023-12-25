@@ -41,7 +41,8 @@ Future<void> bootstrap(
 
   await runZonedGuarded(
     () async {
-      WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+      // WidgetsBinding widgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized();
       await dotenv.load(fileName: ".env");
       final supabaseUrl = dotenv.env['SUPABASE_URL'];
       final anonKey = dotenv.env['SUPABASE_ANON_KEY'];

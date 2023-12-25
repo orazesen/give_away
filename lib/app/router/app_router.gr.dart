@@ -67,11 +67,9 @@ abstract class $AppRouter extends _i8.RootStackRouter {
       );
     },
     RegistrationRoute.name: (routeData) {
-      final args = routeData.argsAs<RegistrationRouteArgs>(
-          orElse: () => const RegistrationRouteArgs());
       return _i8.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i7.RegistrationPage(key: args.key),
+        child: const _i7.RegistrationPage(),
       );
     },
   };
@@ -178,29 +176,14 @@ class ProfileRoute extends _i8.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.RegistrationPage]
-class RegistrationRoute extends _i8.PageRouteInfo<RegistrationRouteArgs> {
-  RegistrationRoute({
-    _i9.Key? key,
-    List<_i8.PageRouteInfo>? children,
-  }) : super(
+class RegistrationRoute extends _i8.PageRouteInfo<void> {
+  const RegistrationRoute({List<_i8.PageRouteInfo>? children})
+      : super(
           RegistrationRoute.name,
-          args: RegistrationRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'RegistrationRoute';
 
-  static const _i8.PageInfo<RegistrationRouteArgs> page =
-      _i8.PageInfo<RegistrationRouteArgs>(name);
-}
-
-class RegistrationRouteArgs {
-  const RegistrationRouteArgs({this.key});
-
-  final _i9.Key? key;
-
-  @override
-  String toString() {
-    return 'RegistrationRouteArgs{key: $key}';
-  }
+  static const _i8.PageInfo<void> page = _i8.PageInfo<void>(name);
 }

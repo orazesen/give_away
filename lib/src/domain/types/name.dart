@@ -1,9 +1,10 @@
 class Name {
-  final String text;
-  Name({required this.text});
+  final String firstname;
+  final String lastname;
+  Name({required this.firstname, required this.lastname});
 
   @override
   String toString() {
-    return "Name(name: '$text')";
+    return "Name(firstname: '$firstname', lastname: '$lastname')";
   }
 }

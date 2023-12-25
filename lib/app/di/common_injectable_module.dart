@@ -8,7 +8,7 @@ abstract class CommonInjectableModule {
   Future<SharedPreferences> get sharedPreferences =>
       SharedPreferences.getInstance();
 
-  SupabaseClient get client => Supabase.instance.client;
+  PostgrestClient get postgrest => Supabase.instance.client.rest;
 
   GoTrueClient get auth => Supabase.instance.client.auth;
 }
