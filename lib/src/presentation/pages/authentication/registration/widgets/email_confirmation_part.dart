@@ -2,11 +2,14 @@ part of '../registration_page.dart';
 
 class _EmailConfirmationPart extends StatelessWidget {
   const _EmailConfirmationPart({
-    super.key,
+    required this.email,
     required this.tabController,
+    required this.registrationCubit,
   });
 
   final TabController tabController;
+  final RegistrationCubit registrationCubit;
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +29,7 @@ class _EmailConfirmationPart extends StatelessWidget {
             height: Dimensions.marginMiddle,
           ),
           Text(
-            context.localization
-                .email_confirmation_text('esenow.orazgeldi@gmail.com'),
+            context.localization.email_confirmation_text(email),
             style: context.theme.base.copyWith(
               color: GiveAwayColors.black,
             ),
@@ -41,21 +43,10 @@ class _EmailConfirmationPart extends StatelessWidget {
             textColor: context.theme.theme.primaryColor,
             backgroundColor: Colors.transparent,
             onPressed: () {
-              tabController.animateTo(tabController.index - 1);
-              // if (_formKey.currentState!.validate()) {
-              //   _signUp();
-              // } else {
-              //   ScaffoldMessenger.of(context).showSnackBar(
-              //     const SnackBar(
-              //       content: Text(
-              //         'Complete form!',
-              //       ),
-              //     ),
-              //   );
-              // }
+              registrationCubit.resendEmail(email);
             },
           ),
-          Spacer(),
+          const Spacer(),
           Row(
             children: [
               Expanded(

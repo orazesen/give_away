@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:give_away/app/di/injector.dart';
 import 'package:give_away/app/localization/localizations.dart';
 import 'package:give_away/src/core/const.dart';
@@ -103,75 +104,90 @@ class _RegistrationPageState extends State<RegistrationPage>
         pageName: context.localization.back,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: Dimensions.marginDefault,
-                vertical: Dimensions.marginDefault,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  for (int i = 0; i < _menus.length; i++)
-                    Row(
-                      children: [
-                        Text(
-                          _menus[i],
-                          style: context.theme.base.copyWith(
-                            color: i < _tabController.index
-                                ? GiveAwayColors.black
-                                : i > _tabController.index
-                                    ? GiveAwayColors.neutral.shade500
-                                    : GiveAwayColors.primary.shade500,
-                          ),
+        child: BlocConsumer<RegistrationCubit, RegistrationState>(
+          bloc: _registrationCubit,
+          listener: (context, state) {
+            state.whenOrNull(
+              signedUp: () {
+                _tabController.animateTo(_tabController.index + 1);
+              },
+            );
+          },
+          builder: (context, state) {
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Dimensions.marginDefault,
+                    vertical: Dimensions.marginDefault,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      for (int i = 0; i < _menus.length; i++)
+                        Row(
+                          children: [
+                            Text(
+                              _menus[i],
+                              style: context.theme.base.copyWith(
+                                color: i < _tabController.index
+                                    ? GiveAwayColors.black
+                                    : i > _tabController.index
+                                        ? GiveAwayColors.neutral.shade500
+                                        : GiveAwayColors.primary.shade500,
+                              ),
+                            ),
+                            if (i < _menus.length - 1)
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: Dimensions.marginMicro,
+                                ),
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  size: Dimensions.xxSmallSize,
+                                  color: i < _tabController.index
+                                      ? GiveAwayColors.black
+                                      : i > _tabController.index
+                                          ? GiveAwayColors.neutral.shade500
+                                          : GiveAwayColors.primary.shade500,
+                                ),
+                              ),
+                          ],
                         ),
-                        if (i < _menus.length - 1)
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: Dimensions.marginMicro,
-                            ),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              size: Dimensions.xxSmallSize,
-                              color: i < _tabController.index
-                                  ? GiveAwayColors.black
-                                  : i > _tabController.index
-                                      ? GiveAwayColors.neutral.shade500
-                                      : GiveAwayColors.primary.shade500,
-                            ),
-                          ),
-                      ],
-                    ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  _SignUpPart(
-                    loginCubit: _loginCubit,
-                    emailController: _emailController,
-                    passwordController: _passwordController,
-                    confirmPasswordController: _confirmPasswordController,
-                    tabController: _tabController,
+                    ],
                   ),
-                  _EmailConfirmationPart(
-                    tabController: _tabController,
+                ),
+                Expanded(
+                  child: TabBarView(
+                    controller: _tabController,
+                    physics: const NeverScrollableScrollPhysics(),
+                    children: [
+                      _SignUpPart(
+                        registrationCubit: _registrationCubit,
+                        loginCubit: _loginCubit,
+                        emailController: _emailController,
+                        passwordController: _passwordController,
+                        confirmPasswordController: _confirmPasswordController,
+                        tabController: _tabController,
+                      ),
+                      _EmailConfirmationPart(
+                        email: _emailController.text,
+                        tabController: _tabController,
+                        registrationCubit: _registrationCubit,
+                      ),
+                      _CreateUserPart(
+                        firstnameController: _firstnameController,
+                        lastnameController: _lastnameController,
+                        birthDateNotifier: _birthDateNotifier,
+                        dateFormat: _dateFormat,
+                        tabController: _tabController,
+                      ),
+                    ],
                   ),
-                  _CreateUserPart(
-                    firstnameController: _firstnameController,
-                    lastnameController: _lastnameController,
-                    birthDateNotifier: _birthDateNotifier,
-                    dateFormat: _dateFormat,
-                    tabController: _tabController,
-                  ),
-                ],
-              ),
-            ),
-          ],
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

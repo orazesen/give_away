@@ -3,6 +3,7 @@ part of '../registration_page.dart';
 class _SignUpPart extends StatelessWidget {
   _SignUpPart({
     required this.loginCubit,
+    required this.registrationCubit,
     required this.emailController,
     required this.passwordController,
     required this.confirmPasswordController,
@@ -11,6 +12,7 @@ class _SignUpPart extends StatelessWidget {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final LoginCubit loginCubit;
+  final RegistrationCubit registrationCubit;
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController confirmPasswordController;
@@ -90,9 +92,10 @@ class _SignUpPart extends StatelessWidget {
         ),
         GiveAwayButton.text(
           onPressed: () {
-            // if (formKey.currentState!.validate()) {
-            tabController.animateTo(tabController.index + 1);
-            // }
+            if (formKey.currentState!.validate()) {
+              registrationCubit.singUp(
+                  emailController.text, passwordController.text);
+            }
           },
           text: context.localization.sign_up,
         ),
