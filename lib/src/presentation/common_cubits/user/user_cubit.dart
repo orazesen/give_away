@@ -22,8 +22,35 @@ class UserCubit extends Cubit<UserState> {
   StreamSubscription<AuthState>? _userAuthStream;
 
   void listenAuthChanges() {
-    _userAuthStream = _userRepository.listenAuthChanges().listen((event) {
-      log(event.event.name, name: _tag);
+    _userAuthStream = _userRepository.listenAuthChanges().listen((state) {
+      log(state.event.name, name: _tag);
+      switch (state.event) {
+        case AuthChangeEvent.initialSession:
+          emit(const _Initial());
+          break;
+        case AuthChangeEvent.mfaChallengeVerified:
+          emit(const _Authorized());
+          break;
+        case AuthChangeEvent.passwordRecovery:
+          emit(const _Authorized());
+          break;
+        case AuthChangeEvent.signedIn:
+          emit(const _Authorized());
+          break;
+        case AuthChangeEvent.signedOut:
+          emit(const _Anonymous());
+          break;
+        case AuthChangeEvent.tokenRefreshed:
+          emit(const _Authorized());
+          break;
+        case AuthChangeEvent.userDeleted:
+          emit(const _Authorized());
+          break;
+        case AuthChangeEvent.userUpdated:
+          emit(const _Authorized());
+          break;
+        default:
+      }
     });
   }
 

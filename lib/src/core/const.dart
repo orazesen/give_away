@@ -1,4 +1,4 @@
-class GiveAwaySupabaseCollections {
+class GiveAwaySupabaseTables {
   static const String addresses = 'addresses';
   static const String banners = 'banners';
   static const String blogs = 'blogs';
@@ -9,6 +9,7 @@ class GiveAwaySupabaseCollections {
   static const String stores = 'stores';
   static const String shops = 'shops';
   static const String clients = 'clients';
+  static const String users = 'auth.users';
 }
 
 class GiveAwaySharedPreferencesKeys {

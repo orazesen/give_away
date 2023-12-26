@@ -47,7 +47,7 @@ class UserRepositoryImpl implements IUserRepository {
       final model = appUser.toModel();
       if (model.email != null && model.password != null) {
         await _postgrestDataSource.createAppUser(
-          model,
+          model: model,
         );
       }
     } catch (e) {
@@ -59,5 +59,12 @@ class UserRepositoryImpl implements IUserRepository {
   @override
   Future<void> resendEmail({required String email}) async {
     await _authDataSource.resendEmail(email: email);
+  }
+
+  @override
+  Future<bool> checkEmailConfirmation(
+      {required String email, required String password}) async {
+    return await _authDataSource.checkEmailConfirmation(
+        email: email, password: password);
   }
 }

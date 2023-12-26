@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +18,7 @@ import 'package:give_away/src/domain/types/name.dart';
 import 'package:give_away/src/domain/types/phone.dart';
 import 'package:give_away/src/domain/types/photo.dart';
 import 'package:give_away/src/domain/types/tare_tag_date_time.dart';
+import 'package:give_away/src/presentation/common_cubits/user/user_cubit.dart';
 import 'package:give_away/src/presentation/pages/authentication/login/cubit/login_cubit.dart';
 import 'package:give_away/src/presentation/pages/authentication/registration/cubit/registration_cubit.dart';
 import 'package:give_away/src/presentation/shared/utils/validator.dart';
@@ -32,6 +36,8 @@ part './widgets/sign_up_part.dart';
 part './widgets/create_user_part.dart';
 part './widgets/scroll_veiw_part.dart';
 part './widgets/email_confirmation_part.dart';
+
+const String _tag = 'RegistrationPage';
 
 @RoutePage()
 class RegistrationPage extends StatefulWidget {
@@ -68,6 +74,9 @@ class _RegistrationPageState extends State<RegistrationPage>
   late TabController _tabController;
 
   late List<String> _menus;
+  Timer? _timer;
+
+  String _userId = '';
 
   @override
   void initState() {
@@ -89,6 +98,7 @@ class _RegistrationPageState extends State<RegistrationPage>
     _firstnameController.dispose();
     _lastnameController.dispose();
     _phoneController.dispose();
+    _timer?.cancel();
     super.dispose();
   }
 
@@ -104,47 +114,53 @@ class _RegistrationPageState extends State<RegistrationPage>
         pageName: context.localization.back,
       ),
       body: SafeArea(
-        child: BlocConsumer<RegistrationCubit, RegistrationState>(
-          bloc: _registrationCubit,
+        child: BlocListener<UserCubit, UserState>(
+          bloc: context.read<UserCubit>(),
           listener: (context, state) {
-            state.whenOrNull(
-              signedUp: () {
-                _tabController.animateTo(_tabController.index + 1);
-              },
-            );
+            log(state.toString(), name: _tag);
           },
-          builder: (context, state) {
-            return Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: Dimensions.marginDefault,
-                    vertical: Dimensions.marginDefault,
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      for (int i = 0; i < _menus.length; i++)
-                        Row(
-                          children: [
-                            Text(
-                              _menus[i],
-                              style: context.theme.base.copyWith(
-                                color: i < _tabController.index
-                                    ? GiveAwayColors.black
-                                    : i > _tabController.index
-                                        ? GiveAwayColors.neutral.shade500
-                                        : GiveAwayColors.primary.shade500,
-                              ),
-                            ),
-                            if (i < _menus.length - 1)
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: Dimensions.marginMicro,
-                                ),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: Dimensions.xxSmallSize,
+          child: BlocConsumer<RegistrationCubit, RegistrationState>(
+            bloc: _registrationCubit,
+            listener: (context, state) {
+              state.whenOrNull(
+                signedUp: (String userId) {
+                  _userId = userId;
+                  _tabController.animateTo(_tabController.index + 1);
+                  _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+                    final isLoading = _registrationCubit.state.maybeWhen(
+                      loading: () => true,
+                      orElse: () => false,
+                    );
+                    if (!isLoading) {
+                      _registrationCubit.checkEmailConfirmation(
+                          email: _emailController.text,
+                          password: _passwordController.text);
+                    }
+                  });
+                },
+                confirmed: () {
+                  _timer?.cancel();
+                  _tabController.animateTo(_tabController.index + 1);
+                },
+              );
+            },
+            builder: (context, state) {
+              return Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Dimensions.marginDefault,
+                      vertical: Dimensions.marginDefault,
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        for (int i = 0; i < _menus.length; i++)
+                          Row(
+                            children: [
+                              Text(
+                                _menus[i],
+                                style: context.theme.base.copyWith(
                                   color: i < _tabController.index
                                       ? GiveAwayColors.black
                                       : i > _tabController.index
@@ -152,70 +168,88 @@ class _RegistrationPageState extends State<RegistrationPage>
                                           : GiveAwayColors.primary.shade500,
                                 ),
                               ),
-                          ],
+                              if (i < _menus.length - 1)
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: Dimensions.marginMicro,
+                                  ),
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    size: Dimensions.xxSmallSize,
+                                    color: i < _tabController.index
+                                        ? GiveAwayColors.black
+                                        : i > _tabController.index
+                                            ? GiveAwayColors.neutral.shade500
+                                            : GiveAwayColors.primary.shade500,
+                                  ),
+                                ),
+                            ],
+                          ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      controller: _tabController,
+                      physics: const NeverScrollableScrollPhysics(),
+                      children: [
+                        _SignUpPart(
+                          registrationCubit: _registrationCubit,
+                          loginCubit: _loginCubit,
+                          emailController: _emailController,
+                          passwordController: _passwordController,
+                          confirmPasswordController: _confirmPasswordController,
+                          tabController: _tabController,
                         ),
-                    ],
+                        _EmailConfirmationPart(
+                          email: _emailController.text,
+                          tabController: _tabController,
+                          registrationCubit: _registrationCubit,
+                          timer: _timer,
+                        ),
+                        _CreateUserPart(
+                          firstnameController: _firstnameController,
+                          lastnameController: _lastnameController,
+                          birthDateNotifier: _birthDateNotifier,
+                          dateFormat: _dateFormat,
+                          tabController: _tabController,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: TabBarView(
-                    controller: _tabController,
-                    physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      _SignUpPart(
-                        registrationCubit: _registrationCubit,
-                        loginCubit: _loginCubit,
-                        emailController: _emailController,
-                        passwordController: _passwordController,
-                        confirmPasswordController: _confirmPasswordController,
-                        tabController: _tabController,
-                      ),
-                      _EmailConfirmationPart(
-                        email: _emailController.text,
-                        tabController: _tabController,
-                        registrationCubit: _registrationCubit,
-                      ),
-                      _CreateUserPart(
-                        firstnameController: _firstnameController,
-                        lastnameController: _lastnameController,
-                        birthDateNotifier: _birthDateNotifier,
-                        dateFormat: _dateFormat,
-                        tabController: _tabController,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            );
-          },
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
   }
 
   void _signUp() {
-    // final appUser = AppUser(
-    //   id: Id.none(),
-    //   name: Name(
-    //       firstname: _firstnameController.text,
-    //       lastname: _lastnameController.text),
-    //   provider: SignInAuthProvider(authProvider: _authProvider.name),
-    //   email: Email(
-    //       email: _emailController.text, password: _passwordController.text),
-    //   emailVerified: false,
-    //   isAnonymous: false,
-    //   phone: Phone(phoneNumber: _phoneController.text),
-    //   photo: Photo(
-    //     photoPath: '',
-    //     photoUrl: '',
-    //   ),
-    //   birthDate: GiveAwayDateTime(date: _birthDateNotifier.value!),
-    //   date: CommonDate(
-    //     createdAt: GiveAwayDateTime(date: DateTime.now()),
-    //     updatedAt: GiveAwayDateTime(date: MagicDefaults.firstDatePossible),
-    //     deletedAt: GiveAwayDateTime(date: MagicDefaults.firstDatePossible),
-    //   ),
-    // );
-    _registrationCubit.singUp(_emailController.text, _passwordController.text);
+    final appUser = AppUser(
+      id: Id(id: _userId),
+      name: Name(
+          firstname: _firstnameController.text,
+          lastname: _lastnameController.text),
+      provider: SignInAuthProvider(authProvider: _authProvider.name),
+      email: Email(
+          email: _emailController.text, password: _passwordController.text),
+      emailVerified: false,
+      isAnonymous: false,
+      phone: Phone(phoneNumber: _phoneController.text),
+      photo: Photo(
+        photoPath: '',
+        photoUrl: '',
+      ),
+      birthDate: GiveAwayDateTime(date: _birthDateNotifier.value!),
+      date: CommonDate(
+        createdAt: GiveAwayDateTime(date: DateTime.now()),
+        updatedAt: GiveAwayDateTime(date: MagicDefaults.firstDatePossible),
+        deletedAt: GiveAwayDateTime(date: MagicDefaults.firstDatePossible),
+      ),
+    );
+    _registrationCubit.singUp(
+        email: _emailController.text, password: _passwordController.text);
   }
 }

@@ -15,11 +15,9 @@ class SupabasePostgrestDataSource implements ISupabasePostgrestDataSource {
   SupabasePostgrestDataSource(this._rest);
 
   @override
-  Future<void> createAppUser(AppUserModel model) async {
+  Future<void> createAppUser({required AppUserModel model}) async {
     try {
-      await _rest
-          .from(GiveAwaySupabaseCollections.clients)
-          .insert(model.toJson());
+      await _rest.from(GiveAwaySupabaseTables.clients).insert(model.toJson());
     } catch (e) {
       log('User creation failed', error: e, name: _tag);
       rethrow;
@@ -33,7 +31,7 @@ class SupabasePostgrestDataSource implements ISupabasePostgrestDataSource {
   }
 
   @override
-  Future<void> updateAppUser(AppUserModel model) {
+  Future<void> updateAppUser({required AppUserModel model}) {
     // TODO: implement updateAppUser
     throw UnimplementedError();
   }

@@ -5,11 +5,13 @@ class _EmailConfirmationPart extends StatelessWidget {
     required this.email,
     required this.tabController,
     required this.registrationCubit,
+    required this.timer,
   });
 
   final TabController tabController;
   final RegistrationCubit registrationCubit;
   final String email;
+  final Timer? timer;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class _EmailConfirmationPart extends StatelessWidget {
             textColor: context.theme.theme.primaryColor,
             backgroundColor: Colors.transparent,
             onPressed: () {
-              registrationCubit.resendEmail(email);
+              registrationCubit.resendEmail(email: email);
             },
           ),
           const Spacer(),
@@ -53,18 +55,8 @@ class _EmailConfirmationPart extends StatelessWidget {
                 child: GiveAwayButton.text(
                   text: context.localization.edit_email,
                   onPressed: () {
+                    timer?.cancel();
                     tabController.animateTo(tabController.index - 1);
-                    // if (_formKey.currentState!.validate()) {
-                    //   _signUp();
-                    // } else {
-                    //   ScaffoldMessenger.of(context).showSnackBar(
-                    //     const SnackBar(
-                    //       content: Text(
-                    //         'Complete form!',
-                    //       ),
-                    //     ),
-                    //   );
-                    // }
                   },
                 ),
               ),

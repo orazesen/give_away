@@ -23,6 +23,9 @@ class _SignUpPart extends StatelessWidget {
     return _ScrollViewPart(
       formKey: formKey,
       children: [
+        const SizedBox(
+          height: Dimensions.marginDefault,
+        ),
         GiveAwayTextFormField.email(
           labelText: context.localization.email,
           controller: emailController,
@@ -94,7 +97,8 @@ class _SignUpPart extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState!.validate()) {
               registrationCubit.singUp(
-                  emailController.text, passwordController.text);
+                  email: emailController.text,
+                  password: passwordController.text);
             }
           },
           text: context.localization.sign_up,

@@ -13,12 +13,12 @@ class RegistrationCubit extends Cubit<RegistrationState> {
 
   final IUserRepository _userRepository;
 
-  Future<void> singUp(String email, String password) async {
+  Future<void> singUp({required String email, required String password}) async {
     try {
       emit(const _Loading());
       final id = await _userRepository.signUp(email: email, password: password);
       if (id != null) {
-        emit(const _SignedUp());
+        emit(_SignedUp(userId: id));
       } else {
         emit(const _Failed());
       }
@@ -27,20 +27,37 @@ class RegistrationCubit extends Cubit<RegistrationState> {
     }
   }
 
-  Future<void> resendEmail(String email) async {
+  Future<void> resendEmail({required String email}) async {
     try {
       await _userRepository.resendEmail(email: email);
-      emit(const _SignedUp());
     } catch (e) {
       emit(const _Failed());
     }
   }
 
-  Future<void> createUser(AppUser appUser) async {
+  Future<void> checkEmailConfirmation(
+      {required String email, required String password}) async {
+    try {
+      emit(const _Loading());
+      final isConfirmed = await _userRepository.checkEmailConfirmation(
+        email: email,
+        password: password,
+      );
+      if (isConfirmed) {
+        emit(const _Confirmed());
+      } else {
+        emit(const _Failed());
+      }
+    } catch (e) {
+      emit(const _Failed());
+    }
+  }
+
+  Future<void> createUser({required AppUser appUser}) async {
     try {
       emit(const _Loading());
       await _userRepository.createUser(appUser: appUser);
-      emit(const _SignedUp());
+      emit(const _Created());
     } catch (e) {
       emit(const _Failed());
     }

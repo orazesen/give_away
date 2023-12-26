@@ -31,7 +31,7 @@ class SupabaseAuthDataSource implements ISupabaseAuthDataSource {
 
   @override
   Future<void> signIn({required String email, required String password}) async {
-    _auth.signInWithPassword(email: email, password: password);
+    await _auth.signInWithPassword(email: email, password: password);
   }
 
   @override
@@ -45,5 +45,16 @@ class SupabaseAuthDataSource implements ISupabaseAuthDataSource {
       type: OtpType.signup,
       email: email,
     );
+  }
+
+  @override
+  Future<bool> checkEmailConfirmation(
+      {required String email, required String password}) async {
+    try {
+      await signIn(email: email, password: password);
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 }

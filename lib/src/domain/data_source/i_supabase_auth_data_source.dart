@@ -4,6 +4,8 @@ abstract class ISupabaseAuthDataSource {
   Stream<AuthState> listenAuthChanges();
   Future<String?> signUp({required String email, required String password});
   Future<void> resendEmail({required String email});
+  Future<bool> checkEmailConfirmation(
+      {required String email, required String password});
   Future<void> signIn({required String email, required String password});
   Future<void> signInWithOAuth({required OAuthProvider oAuthProvider});
 }

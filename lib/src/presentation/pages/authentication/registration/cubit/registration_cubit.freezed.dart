@@ -20,8 +20,8 @@ mixin _$RegistrationState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() signedUp,
-    required TResult Function(String email) confirmated,
+    required TResult Function(String userId) signedUp,
+    required TResult Function() confirmed,
     required TResult Function() created,
     required TResult Function() failed,
   }) =>
@@ -30,8 +30,8 @@ mixin _$RegistrationState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? signedUp,
-    TResult? Function(String email)? confirmated,
+    TResult? Function(String userId)? signedUp,
+    TResult? Function()? confirmed,
     TResult? Function()? created,
     TResult? Function()? failed,
   }) =>
@@ -40,8 +40,8 @@ mixin _$RegistrationState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? signedUp,
-    TResult Function(String email)? confirmated,
+    TResult Function(String userId)? signedUp,
+    TResult Function()? confirmed,
     TResult Function()? created,
     TResult Function()? failed,
     required TResult orElse(),
@@ -52,7 +52,7 @@ mixin _$RegistrationState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignedUp value) signedUp,
-    required TResult Function(_Confirmated value) confirmated,
+    required TResult Function(_Confirmed value) confirmed,
     required TResult Function(_Created value) created,
     required TResult Function(_Failed value) failed,
   }) =>
@@ -62,7 +62,7 @@ mixin _$RegistrationState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignedUp value)? signedUp,
-    TResult? Function(_Confirmated value)? confirmated,
+    TResult? Function(_Confirmed value)? confirmed,
     TResult? Function(_Created value)? created,
     TResult? Function(_Failed value)? failed,
   }) =>
@@ -72,7 +72,7 @@ mixin _$RegistrationState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_SignedUp value)? signedUp,
-    TResult Function(_Confirmated value)? confirmated,
+    TResult Function(_Confirmed value)? confirmed,
     TResult Function(_Created value)? created,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -138,8 +138,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() signedUp,
-    required TResult Function(String email) confirmated,
+    required TResult Function(String userId) signedUp,
+    required TResult Function() confirmed,
     required TResult Function() created,
     required TResult Function() failed,
   }) {
@@ -151,8 +151,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? signedUp,
-    TResult? Function(String email)? confirmated,
+    TResult? Function(String userId)? signedUp,
+    TResult? Function()? confirmed,
     TResult? Function()? created,
     TResult? Function()? failed,
   }) {
@@ -164,8 +164,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? signedUp,
-    TResult Function(String email)? confirmated,
+    TResult Function(String userId)? signedUp,
+    TResult Function()? confirmed,
     TResult Function()? created,
     TResult Function()? failed,
     required TResult orElse(),
@@ -182,7 +182,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignedUp value) signedUp,
-    required TResult Function(_Confirmated value) confirmated,
+    required TResult Function(_Confirmed value) confirmed,
     required TResult Function(_Created value) created,
     required TResult Function(_Failed value) failed,
   }) {
@@ -195,7 +195,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignedUp value)? signedUp,
-    TResult? Function(_Confirmated value)? confirmated,
+    TResult? Function(_Confirmed value)? confirmed,
     TResult? Function(_Created value)? created,
     TResult? Function(_Failed value)? failed,
   }) {
@@ -208,7 +208,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_SignedUp value)? signedUp,
-    TResult Function(_Confirmated value)? confirmated,
+    TResult Function(_Confirmed value)? confirmed,
     TResult Function(_Created value)? created,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -264,8 +264,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() signedUp,
-    required TResult Function(String email) confirmated,
+    required TResult Function(String userId) signedUp,
+    required TResult Function() confirmed,
     required TResult Function() created,
     required TResult Function() failed,
   }) {
@@ -277,8 +277,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? signedUp,
-    TResult? Function(String email)? confirmated,
+    TResult? Function(String userId)? signedUp,
+    TResult? Function()? confirmed,
     TResult? Function()? created,
     TResult? Function()? failed,
   }) {
@@ -290,8 +290,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? signedUp,
-    TResult Function(String email)? confirmated,
+    TResult Function(String userId)? signedUp,
+    TResult Function()? confirmed,
     TResult Function()? created,
     TResult Function()? failed,
     required TResult orElse(),
@@ -308,7 +308,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignedUp value) signedUp,
-    required TResult Function(_Confirmated value) confirmated,
+    required TResult Function(_Confirmed value) confirmed,
     required TResult Function(_Created value) created,
     required TResult Function(_Failed value) failed,
   }) {
@@ -321,7 +321,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignedUp value)? signedUp,
-    TResult? Function(_Confirmated value)? confirmated,
+    TResult? Function(_Confirmed value)? confirmed,
     TResult? Function(_Created value)? created,
     TResult? Function(_Failed value)? failed,
   }) {
@@ -334,7 +334,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_SignedUp value)? signedUp,
-    TResult Function(_Confirmated value)? confirmated,
+    TResult Function(_Confirmed value)? confirmed,
     TResult Function(_Created value)? created,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -355,6 +355,8 @@ abstract class _$$SignedUpImplCopyWith<$Res> {
   factory _$$SignedUpImplCopyWith(
           _$SignedUpImpl value, $Res Function(_$SignedUpImpl) then) =
       __$$SignedUpImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String userId});
 }
 
 /// @nodoc
@@ -364,38 +366,62 @@ class __$$SignedUpImplCopyWithImpl<$Res>
   __$$SignedUpImplCopyWithImpl(
       _$SignedUpImpl _value, $Res Function(_$SignedUpImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? userId = null,
+  }) {
+    return _then(_$SignedUpImpl(
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SignedUpImpl implements _SignedUp {
-  const _$SignedUpImpl();
+  const _$SignedUpImpl({required this.userId});
+
+  @override
+  final String userId;
 
   @override
   String toString() {
-    return 'RegistrationState.signedUp()';
+    return 'RegistrationState.signedUp(userId: $userId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SignedUpImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$SignedUpImpl &&
+            (identical(other.userId, userId) || other.userId == userId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, userId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignedUpImplCopyWith<_$SignedUpImpl> get copyWith =>
+      __$$SignedUpImplCopyWithImpl<_$SignedUpImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() signedUp,
-    required TResult Function(String email) confirmated,
+    required TResult Function(String userId) signedUp,
+    required TResult Function() confirmed,
     required TResult Function() created,
     required TResult Function() failed,
   }) {
-    return signedUp();
+    return signedUp(userId);
   }
 
   @override
@@ -403,12 +429,12 @@ class _$SignedUpImpl implements _SignedUp {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? signedUp,
-    TResult? Function(String email)? confirmated,
+    TResult? Function(String userId)? signedUp,
+    TResult? Function()? confirmed,
     TResult? Function()? created,
     TResult? Function()? failed,
   }) {
-    return signedUp?.call();
+    return signedUp?.call(userId);
   }
 
   @override
@@ -416,14 +442,14 @@ class _$SignedUpImpl implements _SignedUp {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? signedUp,
-    TResult Function(String email)? confirmated,
+    TResult Function(String userId)? signedUp,
+    TResult Function()? confirmed,
     TResult Function()? created,
     TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (signedUp != null) {
-      return signedUp();
+      return signedUp(userId);
     }
     return orElse();
   }
@@ -434,7 +460,7 @@ class _$SignedUpImpl implements _SignedUp {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignedUp value) signedUp,
-    required TResult Function(_Confirmated value) confirmated,
+    required TResult Function(_Confirmed value) confirmed,
     required TResult Function(_Created value) created,
     required TResult Function(_Failed value) failed,
   }) {
@@ -447,7 +473,7 @@ class _$SignedUpImpl implements _SignedUp {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignedUp value)? signedUp,
-    TResult? Function(_Confirmated value)? confirmated,
+    TResult? Function(_Confirmed value)? confirmed,
     TResult? Function(_Created value)? created,
     TResult? Function(_Failed value)? failed,
   }) {
@@ -460,7 +486,7 @@ class _$SignedUpImpl implements _SignedUp {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_SignedUp value)? signedUp,
-    TResult Function(_Confirmated value)? confirmated,
+    TResult Function(_Confirmed value)? confirmed,
     TResult Function(_Created value)? created,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -473,81 +499,60 @@ class _$SignedUpImpl implements _SignedUp {
 }
 
 abstract class _SignedUp implements RegistrationState {
-  const factory _SignedUp() = _$SignedUpImpl;
+  const factory _SignedUp({required final String userId}) = _$SignedUpImpl;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  _$$SignedUpImplCopyWith<_$SignedUpImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ConfirmatedImplCopyWith<$Res> {
-  factory _$$ConfirmatedImplCopyWith(
-          _$ConfirmatedImpl value, $Res Function(_$ConfirmatedImpl) then) =
-      __$$ConfirmatedImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String email});
+abstract class _$$ConfirmedImplCopyWith<$Res> {
+  factory _$$ConfirmedImplCopyWith(
+          _$ConfirmedImpl value, $Res Function(_$ConfirmedImpl) then) =
+      __$$ConfirmedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ConfirmatedImplCopyWithImpl<$Res>
-    extends _$RegistrationStateCopyWithImpl<$Res, _$ConfirmatedImpl>
-    implements _$$ConfirmatedImplCopyWith<$Res> {
-  __$$ConfirmatedImplCopyWithImpl(
-      _$ConfirmatedImpl _value, $Res Function(_$ConfirmatedImpl) _then)
+class __$$ConfirmedImplCopyWithImpl<$Res>
+    extends _$RegistrationStateCopyWithImpl<$Res, _$ConfirmedImpl>
+    implements _$$ConfirmedImplCopyWith<$Res> {
+  __$$ConfirmedImplCopyWithImpl(
+      _$ConfirmedImpl _value, $Res Function(_$ConfirmedImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? email = null,
-  }) {
-    return _then(_$ConfirmatedImpl(
-      null == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$ConfirmatedImpl implements _Confirmated {
-  const _$ConfirmatedImpl(this.email);
-
-  @override
-  final String email;
+class _$ConfirmedImpl implements _Confirmed {
+  const _$ConfirmedImpl();
 
   @override
   String toString() {
-    return 'RegistrationState.confirmated(email: $email)';
+    return 'RegistrationState.confirmed()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ConfirmatedImpl &&
-            (identical(other.email, email) || other.email == email));
+        (other.runtimeType == runtimeType && other is _$ConfirmedImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, email);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ConfirmatedImplCopyWith<_$ConfirmatedImpl> get copyWith =>
-      __$$ConfirmatedImplCopyWithImpl<_$ConfirmatedImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() signedUp,
-    required TResult Function(String email) confirmated,
+    required TResult Function(String userId) signedUp,
+    required TResult Function() confirmed,
     required TResult Function() created,
     required TResult Function() failed,
   }) {
-    return confirmated(email);
+    return confirmed();
   }
 
   @override
@@ -555,12 +560,12 @@ class _$ConfirmatedImpl implements _Confirmated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? signedUp,
-    TResult? Function(String email)? confirmated,
+    TResult? Function(String userId)? signedUp,
+    TResult? Function()? confirmed,
     TResult? Function()? created,
     TResult? Function()? failed,
   }) {
-    return confirmated?.call(email);
+    return confirmed?.call();
   }
 
   @override
@@ -568,14 +573,14 @@ class _$ConfirmatedImpl implements _Confirmated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? signedUp,
-    TResult Function(String email)? confirmated,
+    TResult Function(String userId)? signedUp,
+    TResult Function()? confirmed,
     TResult Function()? created,
     TResult Function()? failed,
     required TResult orElse(),
   }) {
-    if (confirmated != null) {
-      return confirmated(email);
+    if (confirmed != null) {
+      return confirmed();
     }
     return orElse();
   }
@@ -586,11 +591,11 @@ class _$ConfirmatedImpl implements _Confirmated {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignedUp value) signedUp,
-    required TResult Function(_Confirmated value) confirmated,
+    required TResult Function(_Confirmed value) confirmed,
     required TResult Function(_Created value) created,
     required TResult Function(_Failed value) failed,
   }) {
-    return confirmated(this);
+    return confirmed(this);
   }
 
   @override
@@ -599,11 +604,11 @@ class _$ConfirmatedImpl implements _Confirmated {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignedUp value)? signedUp,
-    TResult? Function(_Confirmated value)? confirmated,
+    TResult? Function(_Confirmed value)? confirmed,
     TResult? Function(_Created value)? created,
     TResult? Function(_Failed value)? failed,
   }) {
-    return confirmated?.call(this);
+    return confirmed?.call(this);
   }
 
   @override
@@ -612,25 +617,20 @@ class _$ConfirmatedImpl implements _Confirmated {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_SignedUp value)? signedUp,
-    TResult Function(_Confirmated value)? confirmated,
+    TResult Function(_Confirmed value)? confirmed,
     TResult Function(_Created value)? created,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
-    if (confirmated != null) {
-      return confirmated(this);
+    if (confirmed != null) {
+      return confirmed(this);
     }
     return orElse();
   }
 }
 
-abstract class _Confirmated implements RegistrationState {
-  const factory _Confirmated(final String email) = _$ConfirmatedImpl;
-
-  String get email;
-  @JsonKey(ignore: true)
-  _$$ConfirmatedImplCopyWith<_$ConfirmatedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _Confirmed implements RegistrationState {
+  const factory _Confirmed() = _$ConfirmedImpl;
 }
 
 /// @nodoc
@@ -673,8 +673,8 @@ class _$CreatedImpl implements _Created {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() signedUp,
-    required TResult Function(String email) confirmated,
+    required TResult Function(String userId) signedUp,
+    required TResult Function() confirmed,
     required TResult Function() created,
     required TResult Function() failed,
   }) {
@@ -686,8 +686,8 @@ class _$CreatedImpl implements _Created {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? signedUp,
-    TResult? Function(String email)? confirmated,
+    TResult? Function(String userId)? signedUp,
+    TResult? Function()? confirmed,
     TResult? Function()? created,
     TResult? Function()? failed,
   }) {
@@ -699,8 +699,8 @@ class _$CreatedImpl implements _Created {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? signedUp,
-    TResult Function(String email)? confirmated,
+    TResult Function(String userId)? signedUp,
+    TResult Function()? confirmed,
     TResult Function()? created,
     TResult Function()? failed,
     required TResult orElse(),
@@ -717,7 +717,7 @@ class _$CreatedImpl implements _Created {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignedUp value) signedUp,
-    required TResult Function(_Confirmated value) confirmated,
+    required TResult Function(_Confirmed value) confirmed,
     required TResult Function(_Created value) created,
     required TResult Function(_Failed value) failed,
   }) {
@@ -730,7 +730,7 @@ class _$CreatedImpl implements _Created {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignedUp value)? signedUp,
-    TResult? Function(_Confirmated value)? confirmated,
+    TResult? Function(_Confirmed value)? confirmed,
     TResult? Function(_Created value)? created,
     TResult? Function(_Failed value)? failed,
   }) {
@@ -743,7 +743,7 @@ class _$CreatedImpl implements _Created {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_SignedUp value)? signedUp,
-    TResult Function(_Confirmated value)? confirmated,
+    TResult Function(_Confirmed value)? confirmed,
     TResult Function(_Created value)? created,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -799,8 +799,8 @@ class _$FailedImpl implements _Failed {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() signedUp,
-    required TResult Function(String email) confirmated,
+    required TResult Function(String userId) signedUp,
+    required TResult Function() confirmed,
     required TResult Function() created,
     required TResult Function() failed,
   }) {
@@ -812,8 +812,8 @@ class _$FailedImpl implements _Failed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? signedUp,
-    TResult? Function(String email)? confirmated,
+    TResult? Function(String userId)? signedUp,
+    TResult? Function()? confirmed,
     TResult? Function()? created,
     TResult? Function()? failed,
   }) {
@@ -825,8 +825,8 @@ class _$FailedImpl implements _Failed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? signedUp,
-    TResult Function(String email)? confirmated,
+    TResult Function(String userId)? signedUp,
+    TResult Function()? confirmed,
     TResult Function()? created,
     TResult Function()? failed,
     required TResult orElse(),
@@ -843,7 +843,7 @@ class _$FailedImpl implements _Failed {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_SignedUp value) signedUp,
-    required TResult Function(_Confirmated value) confirmated,
+    required TResult Function(_Confirmed value) confirmed,
     required TResult Function(_Created value) created,
     required TResult Function(_Failed value) failed,
   }) {
@@ -856,7 +856,7 @@ class _$FailedImpl implements _Failed {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_SignedUp value)? signedUp,
-    TResult? Function(_Confirmated value)? confirmated,
+    TResult? Function(_Confirmed value)? confirmed,
     TResult? Function(_Created value)? created,
     TResult? Function(_Failed value)? failed,
   }) {
@@ -869,7 +869,7 @@ class _$FailedImpl implements _Failed {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_SignedUp value)? signedUp,
-    TResult Function(_Confirmated value)? confirmated,
+    TResult Function(_Confirmed value)? confirmed,
     TResult Function(_Created value)? created,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
